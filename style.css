@@ -1,0 +1,42 @@
+body{
+	font-family:sans-serif;
+	background:aliceblue;
+}
+
+h3{
+	font-size:1.6em;
+	font-weight:normal;
+}
+
+h4{
+	font-size:1em;
+	font-weight:normal;
+	width:40%;
+}
+
+.answ{
+	font-size:1.2em;
+	display:none;
+	color:darkcyan;
+	background:lightcyan;
+	border:1px solid darkcyan;
+	border-radius:10px;	
+	padding:.4em;
+}
+
+#next{
+	font-size:1em;
+	display:inline;
+	padding:.2em;
+	color:midnightblue;
+	background:aliceblue;
+	border:1px solid midnightblue;
+	border-radius:10px;	
+}
+
+#congrats{
+	display:none;
+	position:fixed;
+	left:40%;
+	top:20%;
+}

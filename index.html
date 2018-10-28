@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script>
+		var questions = ["What is the superior cookie?", "What does expression &#34;wig&#34; mean?", "What Celtic holiday is often cited as one of the origins of Halloween?", "What be a pirate's favourite gas?", "What is love?"];
+		var answersA = ["Digestives", "mood", "Samhain", "Arrgon", "Baby, don't hurt me, don't hurt me no more"];
+		var answersB = ["Fudge stripes", "Look at them wiggle", "Beltane", "Oxygen", "A neurochemical con job"];
+		var answersC = ["Oreos", "Today is not their good hair day", "Yuletide", "Nitrogen", "Love is like Beauty and the Beast"];
+	</script>
+</head>
+<body>
+	<h2>Welcome to a trivia quiz!</h2>
+	<h4>Warning: some opinions may be highly personal. As this is done in good fun, the creator accepts alternative opinions and merely expresses their preferences here.</h4>
+	<h3 id="score"></h3>
+	<h3 id="question"></h3>
+	<h3 id="congrats">Congratulations, you're done!</h3>
+	<button class="answ" id="A"></button>
+	<button class="answ" id="B"></button>
+	<button class="answ" id="C"></button>
+
+	<h4 id="yep"></h4>
+
+	<button id="next" onclick="newQuestion()">start the quiz</button>
+
+	<script type="text/javascript">
+		var questionCounter=0;
+		var totalScore=0;
+		var answers = document.getElementsByClassName("answ");
+		function newQuestion(){
+			document.getElementById('next').style.display="none";
+			document.getElementById('next').innerHTML="next question";
+			document.getElementById('question').innerHTML=questions[questionCounter];
+			document.getElementById('A').innerHTML=answersA[questionCounter];
+			document.getElementById('A').style.display="inline";
+			document.getElementById('B').innerHTML=answersB[questionCounter];
+			document.getElementById('B').style.display="inline";
+			document.getElementById('C').innerHTML=answersC[questionCounter];
+			document.getElementById('C').style.display="inline";
+			document.getElementById("yep").innerHTML=" ";
+			for (i=0; i<answers.length; i++){
+				answers[i].disabled=false;
+			}
+		};
+
+		document.getElementById("A").addEventListener("click", function(event){
+			document.getElementById("yep").innerHTML="Quite right";
+			if (questionCounter<questions.length-1){
+				questionCounter+=1;
+				document.getElementById("next").style.display="inline-block";
+			} else {
+				document.getElementById("congrats").style.display="inline-block";
+			};
+			totalScore+=1;
+			document.getElementById("score").innerHTML= "Total score: " + totalScore;
+			for (i=0; i<answers.length; i++){
+				answers[i].disabled="disabled";
+			}
+		});
+
+		document.getElementById("B").addEventListener("click", function(event){
+			document.getElementById("yep").innerHTML="Please, consider reconsidering your life choices";
+			if (questionCounter<questions.length-1){
+				questionCounter+=1;
+				document.getElementById("next").style.display="inline-block";
+			} else {
+				document.getElementById("congrats").style.display="inline-block";
+			};
+			document.getElementById("score").innerHTML= "Total score: " + totalScore;
+			for (i=0; i<answers.length; i++){
+				answers[i].disabled="disabled";
+			}
+		});
+
+		document.getElementById("C").addEventListener("click", function(event){
+			document.getElementById("yep").innerHTML="Please, consider reeconsidering your life choices";
+			if (questionCounter<questions.length-1){
+				questionCounter+=1;
+				document.getElementById("next").style.display="inline-block";
+			} else {
+				document.getElementById("congrats").style.display="inline-block";
+			};
+			document.getElementById("score").innerHTML= "Total score: " + totalScore;
+			for (i=0; i<answers.length; i++){
+				answers[i].disabled="disabled";
+			}
+		});
+
+
+
+	</script>
+</body>
+</html>
